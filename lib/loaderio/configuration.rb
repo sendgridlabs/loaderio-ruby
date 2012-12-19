@@ -15,5 +15,9 @@ module Loaderio
     def base_url
       "#{protocol}://#{server}"
     end
+    
+    def resource
+      RestClient::Resource.new(base_url)
+    end
   end
 end

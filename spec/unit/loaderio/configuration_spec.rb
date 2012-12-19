@@ -32,4 +32,10 @@ describe Loaderio::Configuration do
     
     it{ should == "https://api.loader.io" }
   end
+  
+  context "#resource" do
+    subject{ described_class.resource }
+    
+    it{ should be_kind_of(RestClient::Resource) }
+  end
 end
