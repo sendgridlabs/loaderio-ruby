@@ -30,7 +30,7 @@ describe Loaderio::Configuration do
   context "#base_url" do
     subject{ described_class.base_url }
     
-    it{ should == "https://api.loader.io" }
+    it{ should == "https://api.loader.io/v1" }
   end
   
   context "#resource" do

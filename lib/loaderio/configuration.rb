@@ -13,11 +13,11 @@ module Loaderio
     end
     
     def base_url
-      "#{protocol}://#{server}"
+      "#{protocol}://#{server}/#{api_version}"
     end
     
     def resource
-      RestClient::Resource.new(base_url)
+      @resource ||= RestClient::Resource.new(base_url, headers: {"loaderio-Auth" => api_key })
     end
   end
 end
