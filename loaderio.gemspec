@@ -19,6 +19,8 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "rspec", "~> 2.12.0"
   s.add_development_dependency "simplecov", "~> 0.7.1"
-  
+    
   s.add_runtime_dependency "rest-client", "~> 1.6.7"
+  s.add_runtime_dependency "oj", "~> 2.0.0"
+  s.add_runtime_dependency "multi_json", "~> 1.5.0"
 end
