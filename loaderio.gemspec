@@ -7,8 +7,8 @@ Gem::Specification.new do |s|
   s.authors     = ["paladiy"]
   s.email       = ["olexanderpaladiy@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.summary     = %q{loader.io ruby api client}
+  s.description = %q{loader.io ruby api client}
 
   s.rubyforge_project = "loaderio"
 
