@@ -11,5 +11,9 @@ module Loaderio
         new(item)
       end
     end
+    
+    def self.find(app_id)
+      new(MultiJson.load(Loaderio::Configuration.resource["apps/#{app_id}.json"].get, :symbolize_keys => true))
+    end
   end  
 end
