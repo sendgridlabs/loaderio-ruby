@@ -9,7 +9,7 @@ describe Loaderio::Base do
   its(:message){ should == "error" }
   its(:errors){ should == ["Invalid record"] }  
     
-  context "valid?" do
+  context "#valid?" do
     subject{ instance.valid? }
     
     context "when error" do
