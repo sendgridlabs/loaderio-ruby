@@ -20,4 +20,16 @@ describe Loaderio::Configuration do
     
     it{ should == "api_key" }
   end
+  
+  context "#server" do
+    subject{ described_class.server }
+    
+    it{ should == "api.loader.io" }
+  end
+  
+  context "#base_url" do
+    subject{ described_class.base_url }
+    
+    it{ should == "https://api.loader.io" }
+  end
 end
