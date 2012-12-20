@@ -4,9 +4,9 @@ require "loaderio/version"
 Gem::Specification.new do |s|
   s.name        = "loaderio"
   s.version     = Loaderio::VERSION
-  s.authors     = ["paladiy"]
-  s.email       = ["olexanderpaladiy@gmail.com"]
-  s.homepage    = ""
+  s.authors     = ["Olexander Paladiy"]
+  s.email       = ["loaderio@labs.sendgrid.com"]
+  s.homepage    = "http://loader.io/"
   s.summary     = %q{loader.io ruby api client}
   s.description = %q{loader.io ruby api client}
 
