@@ -22,7 +22,7 @@ describe Loaderio::Application do
     subject{ collection }
     
     before do
-      resource.should_receive(:[]).with("apps.json").and_return(resource)
+      resource.should_receive(:[]).with("apps").and_return(resource)
       resource.should_receive(:get).and_return(MultiJson.dump([attributes, attributes]))
     end
     
@@ -41,7 +41,7 @@ describe Loaderio::Application do
     subject{ instance }
     
     before do
-      resource.should_receive(:[]).with("apps/fake-app-id.json").and_return(resource)
+      resource.should_receive(:[]).with("apps/fake-app-id").and_return(resource)
       resource.should_receive(:get).and_return(MultiJson.dump(attributes))
     end
     
@@ -54,7 +54,7 @@ describe Loaderio::Application do
     subject{ described_class.create app: "localhost.local"}
     
     before do
-      resource.should_receive(:[]).with("apps.json").and_return(resource)
+      resource.should_receive(:[]).with("apps").and_return(resource)
       resource.should_receive(:post).with(app: "localhost.local").and_return(MultiJson.dump(responce))
     end
     
@@ -69,7 +69,7 @@ describe Loaderio::Application do
     subject{ described_class.verify("fake-app-id") }
 
     before do
-      resource.should_receive(:[]).with("apps/fake-app-id/verify.json").and_return(resource)
+      resource.should_receive(:[]).with("apps/fake-app-id/verify").and_return(resource)
       resource.should_receive(:post).with({}).and_return(MultiJson.dump(responce))
     end
     

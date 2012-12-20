@@ -17,17 +17,17 @@ module Loaderio
     end
     
     def self.all
-      parse(Loaderio::Configuration.resource["#{resource_name}.json"].get).map do |item|
+      parse(Loaderio::Configuration.resource["#{resource_name}"].get).map do |item|
         new(item)
       end
     end
     
     def self.find(id)
-      new(parse(Loaderio::Configuration.resource["#{resource_name}/#{id}.json"].get))
+      new(parse(Loaderio::Configuration.resource["#{resource_name}/#{id}"].get))
     end
     
     def self.create(attrs)
-      new(parse(Loaderio::Configuration.resource["#{resource_name}.json"].post(attrs)))
+      new(parse(Loaderio::Configuration.resource["#{resource_name}"].post(attrs)))
     end
     
     private

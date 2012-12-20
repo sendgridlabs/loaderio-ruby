@@ -12,7 +12,7 @@ module Loaderio
     end
     
     def self.verify(app_id)
-      new(parse(Loaderio::Configuration.resource["#{resource_name}/#{app_id}/verify.json"].post({})))
+      new(parse(Loaderio::Configuration.resource["#{resource_name}/#{app_id}/verify"].post({})))
     end
     
     def verification_id

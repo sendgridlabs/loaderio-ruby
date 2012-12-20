@@ -21,7 +21,7 @@ module Loaderio
     end
     
     def self.results(id)
-      new(parse(Loaderio::Configuration.resource["#{resource_name}/#{id}/results.json"].get))
+      new(parse(Loaderio::Configuration.resource["#{resource_name}/#{id}/results"].get))
     end
   end
 end

@@ -50,7 +50,7 @@ describe Loaderio::Test do
     subject{ collection }
     
     before do
-      resource.should_receive(:[]).with("tests.json").and_return(resource)
+      resource.should_receive(:[]).with("tests").and_return(resource)
       resource.should_receive(:get).and_return(MultiJson.dump([attributes, attributes]))
     end
     
@@ -69,7 +69,7 @@ describe Loaderio::Test do
     subject{ instance }
 
     before do
-      resource.should_receive(:[]).with("tests/fake-test-id.json").and_return(resource)
+      resource.should_receive(:[]).with("tests/fake-test-id").and_return(resource)
       resource.should_receive(:get).and_return(MultiJson.dump(attributes))
     end
     
@@ -93,7 +93,7 @@ describe Loaderio::Test do
     subject{ responce }
     
     before do
-      resource.should_receive(:[]).with("tests.json").and_return(resource)
+      resource.should_receive(:[]).with("tests").and_return(resource)
       resource.should_receive(:post).with(url: "http://app.loader.io/tests#12", load: "0-10-10").and_return(MultiJson.dump(attributes.merge(results_data: results_data)))
     end
     
@@ -123,7 +123,7 @@ describe Loaderio::Test do
     subject{ responce }
     
     before do
-      resource.should_receive(:[]).with("tests/fake-test-id/results.json").and_return(resource)
+      resource.should_receive(:[]).with("tests/fake-test-id/results").and_return(resource)
       resource.should_receive(:get).and_return(MultiJson.dump(attributes.merge(results_data: results_data)))
     end
     
