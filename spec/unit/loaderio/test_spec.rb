@@ -77,7 +77,33 @@ describe Loaderio::Test do
   end
   
   context ".create" do
-    pending
+    let(:results_data){
+      {
+        started_at: "2012-09-13T10:32:36Z",
+        public_results_url: "http://loader.io/results/1f25f5d42d6839bc30815dc92d301e86",
+        success: 25588,
+        error: 0,
+        timeout_error: 6220,
+        data_sent: 7617840,
+        data_received: 4212000
+      }
+    }
+    let(:responce){ described_class.create(url: "http://app.loader.io/tests#12", load: "0-10-10")  }
+    
+    subject{ responce }
+    
+    before do
+      resource.should_receive(:[]).with("tests.json").and_return(resource)
+      resource.should_receive(:post).with(url: "http://app.loader.io/tests#12", load: "0-10-10").and_return(MultiJson.dump(attributes.merge(results_data: results_data)))
+    end
+    
+    it_should_behave_like "test attributes"
+    
+    context "with results data" do
+      subject{ responce.results_data }
+      
+      it_should_behave_like "test results"
+    end
   end
   
   context ".results" do
@@ -103,7 +129,7 @@ describe Loaderio::Test do
     
     it_should_behave_like "test attributes"
     
-    context "results" do
+    context "with results data" do
       subject{ responce.results_data }
       
       it_should_behave_like "test results"
