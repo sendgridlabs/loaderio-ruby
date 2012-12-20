@@ -1,5 +1,8 @@
 # ruby client for loader.io api
 
+## License
+Licensed under the MIT License.
+
 ## Installing
 
 Add to your 'Gemfile': 
