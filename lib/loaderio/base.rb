@@ -1,7 +1,7 @@
 module Loaderio
   class Base
     attr_reader :message, :errors
-    
+        
     def initialize(attributes)
       @message, @errors = attributes[:message] || "success", attributes[:errors]
     end    
@@ -9,6 +9,8 @@ module Loaderio
     def valid?
       @message == "success"
     end
+    
+    alias_method :success?, :valid?    
     
     def self.resource_name
       raise "resource name was not specified"
