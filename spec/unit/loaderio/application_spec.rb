@@ -51,7 +51,7 @@ describe Loaderio::Application do
   context ".create" do
     let(:responce){ { message: "success", app_id: "fake-app-id", verification_id: "loaderio-fake-app-id" }  }
     
-    subject{ described_class.create "localhost.local"}
+    subject{ described_class.create app: "localhost.local"}
     
     before do
       resource.should_receive(:[]).with("apps.json").and_return(resource)

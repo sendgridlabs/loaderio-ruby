@@ -10,6 +10,24 @@ module Loaderio
       @message == "success"
     end
     
+    def self.resource_name
+      raise "resource name was not specified"
+    end
+    
+    def self.all
+      parse(Loaderio::Configuration.resource["#{resource_name}.json"].get).map do |item|
+        new(item)
+      end
+    end
+    
+    def self.find(id)
+      new(parse(Loaderio::Configuration.resource["#{resource_name}/#{id}.json"].get))
+    end
+    
+    def self.create(attrs)
+      new(parse(Loaderio::Configuration.resource["#{resource_name}.json"].post(attrs)))
+    end
+    
     private
     
     def self.parse(responce)

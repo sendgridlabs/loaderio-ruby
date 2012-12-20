@@ -7,22 +7,12 @@ module Loaderio
       super
     end
     
-    def self.all
-      parse(Loaderio::Configuration.resource["apps.json"].get).map do |item|
-        new(item)
-      end
-    end
-    
-    def self.find(app_id)
-      new(parse(Loaderio::Configuration.resource["apps/#{app_id}.json"].get))
-    end
-    
-    def self.create(domain)
-      new(parse(Loaderio::Configuration.resource["apps.json"].post(app: domain)))
+    def self.resource_name
+      "apps"
     end
     
     def self.verify(app_id)
-      new(parse(Loaderio::Configuration.resource["apps/#{app_id}/verify.json"].post({})))
+      new(parse(Loaderio::Configuration.resource["#{resource_name}/#{app_id}/verify.json"].post({})))
     end
     
     def verification_id

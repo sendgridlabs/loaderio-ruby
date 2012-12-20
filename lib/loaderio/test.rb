@@ -16,14 +16,8 @@ module Loaderio
       super
     end
     
-    def self.all
-      parse(Loaderio::Configuration.resource["tests.json"].get).map do |item|
-        new(item)
-      end
-    end
-    
-    def self.find(test_id)
-      new(parse(Loaderio::Configuration.resource["tests/#{test_id}.json"].get))
-    end
+    def self.resource_name
+      "tests"
+    end    
   end
 end
