@@ -32,6 +32,16 @@ describe Loaderio::Test do
     its(:request_type){ should == "GET" }
   end
   
+  shared_examples_for "test results" do
+    its(:started_at){ should == "2012-09-13T10:32:36Z" }
+    its(:public_results_url){ should == "http://loader.io/results/1f25f5d42d6839bc30815dc92d301e86" }
+    its(:success){ should == 25588 }
+    its(:error){ should == 0 }
+    its(:timeout_error){ should == 6220 }
+    its(:data_sent){ should == 7617840 }
+    its(:data_received){ should == 4212000 }
+  end
+  
   it_should_behave_like "test attributes"
   
   context ".all" do
@@ -64,5 +74,39 @@ describe Loaderio::Test do
     end
     
     it_should_behave_like "test attributes"
+  end
+  
+  context ".create" do
+    pending
+  end
+  
+  context ".results" do
+    let(:results_data){
+      {
+        started_at: "2012-09-13T10:32:36Z",
+        public_results_url: "http://loader.io/results/1f25f5d42d6839bc30815dc92d301e86",
+        success: 25588,
+        error: 0,
+        timeout_error: 6220,
+        data_sent: 7617840,
+        data_received: 4212000
+      }
+    }
+    let(:responce){ described_class.results("fake-test-id")  }
+    
+    subject{ responce }
+    
+    before do
+      resource.should_receive(:[]).with("tests/fake-test-id/results.json").and_return(resource)
+      resource.should_receive(:get).and_return(MultiJson.dump(attributes.merge(results_data: results_data)))
+    end
+    
+    it_should_behave_like "test attributes"
+    
+    context "results" do
+      subject{ responce.results_data }
+      
+      it_should_behave_like "test results"
+    end
   end
 end

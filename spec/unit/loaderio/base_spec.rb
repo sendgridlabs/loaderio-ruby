@@ -8,7 +8,13 @@ describe Loaderio::Base do
   
   its(:message){ should == "error" }
   its(:errors){ should == ["Invalid record"] }  
+  
+  context ".resource_name" do
+    subject{ described_class.resource_name }
     
+    it{ lambda{ subject }.should raise_error }
+  end
+  
   context "#valid?" do
     subject{ instance.valid? }
     

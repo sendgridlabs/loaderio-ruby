@@ -1,6 +1,6 @@
 module Loaderio
   class Test < Base
-    attr_reader :url, :name, :duration, :timeout, :from, :to, :status, :test_id, :request_type
+    attr_reader :url, :name, :duration, :timeout, :from, :to, :status, :test_id, :request_type, :results_data
     
     def initialize(attributes)
       @url          = attributes[:url]
@@ -12,12 +12,16 @@ module Loaderio
       @status       = attributes[:status]
       @test_id      = attributes[:test_id]
       @request_type = attributes[:request_type]
-      
+      @results_data = OpenStruct.new(attributes[:results_data])
       super
     end
     
     def self.resource_name
       "tests"
-    end    
+    end
+    
+    def self.results(id)
+      new(parse(Loaderio::Configuration.resource["#{resource_name}/#{id}/results.json"].get))
+    end
   end
 end
