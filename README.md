@@ -1,4 +1,4 @@
-# ruby client for loader.io api
+# ruby client for loader.io api [![Build Status](https://travis-ci.org/sendgridlabs/loaderio-ruby.png?branch=master)](https://travis-ci.org/sendgridlabs/loaderio-ruby)
 
 ## License
 Licensed under the MIT License.
