@@ -1,6 +1,7 @@
 language: ruby
 before_install:
-  - gem install bundler --pre
+  - gem install bundler
+  - gem install rake
 rvm:
   - 1.9.2
   - 1.9.3
