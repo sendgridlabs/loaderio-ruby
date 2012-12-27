@@ -16,7 +16,9 @@ describe Loaderio::Test do
   }  
   let(:test){ described_class.new attributes }
   
-  let(:resource){ Loaderio::Configuration.resource }  
+  let(:resource){ mock("resource") }
+  
+  before{ Loaderio::Configuration.stub!(:resource).and_return(resource) }  
   
   subject{ test }
   

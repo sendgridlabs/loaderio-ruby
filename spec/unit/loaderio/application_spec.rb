@@ -4,7 +4,9 @@ describe Loaderio::Application do
   let(:attributes){ { app: "localhost.local", app_id: "fake-app-id", status: "verified" } }  
   let(:application){ described_class.new(attributes) }
   
-  let(:resource){ Loaderio::Configuration.resource }  
+  let(:resource){ mock("resource") }
+  
+  before{ Loaderio::Configuration.stub!(:resource).and_return(resource) }  
   
   subject{ application }
   

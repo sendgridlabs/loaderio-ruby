@@ -24,6 +24,8 @@ describe Loaderio::Configuration do
   context "#server" do
     subject{ described_class.server }
     
+    before{ described_class.server = "api.loader.io" }
+    
     it{ should == "api.loader.io" }
   end
   

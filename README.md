@@ -61,6 +61,11 @@ Loaderio::Test.find("test_id")
 Loaderio::Test.create(url: "http://example.com", load: "0-10-10")
 => #<Loaderio::Test:0x007fd232131ee0>
 ```
+#### Create test with tags
+```ruby
+Loaderio::Test.create(url: "http://example.com", load: "0-10-10", tag_names: ["tag1", "tag2"])
+=> #<Loaderio::Test:0x007fd232131ee0>
+```
 
 ### Test results
 ```ruby
