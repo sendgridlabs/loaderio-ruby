@@ -57,7 +57,7 @@ describe Loaderio::Application do
     
     before do
       resource.should_receive(:[]).with("apps").and_return(resource)
-      resource.should_receive(:post).with(app: "localhost.local").and_return(MultiJson.dump(responce))
+      resource.should_receive(:post).with(MultiJson.dump(app: "localhost.local")).and_return(MultiJson.dump(responce))
     end
     
     its(:app_id){ should == "fake-app-id" }

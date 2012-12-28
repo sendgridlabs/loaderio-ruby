@@ -27,7 +27,7 @@ module Loaderio
     end
     
     def self.create(attrs)
-      new(parse(Loaderio::Configuration.resource["#{resource_name}"].post(attrs)))
+      new(parse(Loaderio::Configuration.resource["#{resource_name}"].post(MultiJson.dump(attrs))))
     end
     
     private

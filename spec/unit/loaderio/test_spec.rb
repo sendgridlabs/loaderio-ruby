@@ -96,7 +96,7 @@ describe Loaderio::Test do
     
     before do
       resource.should_receive(:[]).with("tests").and_return(resource)
-      resource.should_receive(:post).with(url: "http://app.loader.io/tests#12", load: "0-10-10").and_return(MultiJson.dump(attributes.merge(results_data: results_data)))
+      resource.should_receive(:post).with(MultiJson.dump(url: "http://app.loader.io/tests#12", load: "0-10-10")).and_return(MultiJson.dump(attributes.merge(results_data: results_data)))
     end
     
     it_should_behave_like "test attributes"
