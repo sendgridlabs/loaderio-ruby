@@ -66,6 +66,16 @@ Loaderio::Test.create(url: "http://example.com", load: "0-10-10")
 Loaderio::Test.create(url: "http://example.com", load: "0-10-10", tag_names: ["tag1", "tag2"])
 => #<Loaderio::Test:0x007fd232131ee0>
 ```
+#### Create test with params
+```ruby
+Loaderio::Test.create(url: "http://example.com", load: "0-10-10", request_params:[{key: "param1", value: "value1"}, {key: "param2", value: "value2"}])
+=> #<Loaderio::Test:0x007fd232131ee0>
+```
+#### Create test with headers
+```ruby
+Loaderio::Test.create(url: "http://example.com", load: "0-10-10", headers:[{key: "header1", value: "value1"}, {key: "header2", value: "value2"}])
+=> #<Loaderio::Test:0x007fd232131ee0>
+```
 
 ### Test results
 ```ruby
