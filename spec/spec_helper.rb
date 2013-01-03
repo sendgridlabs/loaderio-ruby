@@ -1,5 +1,7 @@
 require 'simplecov'
 
+ENV["LOADERIO_API_KEY"] = "api_key"
+
 SimpleCov.start do
   add_filter '/spec/'
 

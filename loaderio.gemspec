@@ -22,6 +22,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rake", "~> 10.0.3"
     
   s.add_runtime_dependency "rest-client", "~> 1.6.7"
-  s.add_runtime_dependency "oj", "~> 2.0.0"
   s.add_runtime_dependency "multi_json", "~> 1.5.0"
 end

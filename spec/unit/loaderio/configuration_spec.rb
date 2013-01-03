@@ -16,8 +16,6 @@ describe Loaderio::Configuration do
   context "#api_key" do
     subject{ described_class.api_key }
     
-    before{ described_class.api_key = "api_key" }
-    
     it{ should == "api_key" }
   end
   
