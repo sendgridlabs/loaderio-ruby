@@ -137,4 +137,21 @@ describe Loaderio::Test do
       it_should_behave_like "test results"
     end
   end
+  
+  context ".stop" do
+    let(:attributes){ { test_id: "fake-test-id", message: "success" } }
+    
+    let(:responce){ described_class.stop("fake-test-id") }
+    
+    before do
+      resource.should_receive(:[]).with("tests/fake-test-id/stop").and_return(resource)
+      resource.should_receive(:put).with({}).and_return(MultiJson.dump(attributes))
+    end
+    
+    subject{ responce }
+    
+    it{ should be_kind_of(described_class) }
+    its(:test_id){ should == "fake-test-id" }
+    it{ should be_valid }
+  end
 end

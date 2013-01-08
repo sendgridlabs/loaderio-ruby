@@ -23,5 +23,9 @@ module Loaderio
     def self.results(id)
       new(parse(Loaderio::Configuration.resource["#{resource_name}/#{id}/results"].get))
     end
+    
+    def self.stop(id)
+      new(parse(Loaderio::Configuration.resource["#{resource_name}/#{id}/stop"].put({})))
+    end
   end
 end
