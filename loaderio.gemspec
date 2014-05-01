@@ -4,11 +4,11 @@ require "loaderio/version"
 Gem::Specification.new do |s|
   s.name        = "loaderio"
   s.version     = Loaderio::VERSION
-  s.authors     = ["Olexander Paladiy"]
-  s.email       = ["loaderio@labs.sendgrid.com"]
+  s.authors     = ["Olexander Paladiy", "Ryan Her"]
+  s.email       = ["ryan@quikly.com"]
   s.homepage    = "http://loader.io/"
-  s.summary     = %q{loader.io ruby api client}
-  s.description = %q{loader.io ruby api client}
+  s.summary     = %q{loader.io ruby api client v2}
+  s.description = %q{loader.io ruby api client v2}
 
   s.rubyforge_project = "loaderio"
 
@@ -19,8 +19,8 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency "rspec", "~> 2.12.0"
   s.add_development_dependency "simplecov", "~> 0.7.1"
-  s.add_development_dependency "rake", "~> 10.0.3"
-    
-  s.add_runtime_dependency "rest-client", "~> 1.6.7"
-  s.add_runtime_dependency "multi_json", "~> 1.5.0"
+  s.add_development_dependency "rake", "~> 10.2.2"
+
+  s.add_runtime_dependency "rest-client", "~> 1.7.3"
+  s.add_runtime_dependency "multi_json", "~> 1.9.2"
 end
