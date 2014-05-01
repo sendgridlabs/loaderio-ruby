@@ -30,8 +30,8 @@ module Loaderio
       end
     end
 
-    def self.result(id)
-      Loaderio::Result.new(parse(Loaderio::Configuration.resource["#{resource_name}/#{id}/results"].get))
+    def self.result(test_id, result_id)
+      Loaderio::Result.new(parse(Loaderio::Configuration.resource["#{resource_name}/#{id}/results/#{result_id}"].get))
     end
 
     def self.run(id)
