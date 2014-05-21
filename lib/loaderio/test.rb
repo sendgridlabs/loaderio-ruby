@@ -3,7 +3,7 @@ module Loaderio
     attr_reader :urls, :name, :duration, :timeout, :notes, :initial, :total, :status, :test_id, :test_type, :callback, :callback_email, :scheduled_at, :domain
 
     def initialize(attributes)
-      @urls          = attributes[:urls]
+      @urls         = attributes[:urls]
       @name         = attributes[:name]
       @duration     = attributes[:duration]
       @timeout      = attributes[:timeout]
@@ -11,12 +11,12 @@ module Loaderio
       @initial      = attributes[:initial]
       @status       = attributes[:status]
       @test_id      = attributes[:test_id]
-      @test_type    = attributes[:test_id]
+      @total        = attributes[:total]
+      @test_type    = attributes[:test_type]
       @scheduled_at = attributes[:scheduled_at]
       @domain = attributes[:domain]
       @callback         = attributes[:callback]
       @callback_email   = attributes[:callback_email]
-      @notes        = attributes[:test_id]
       super
     end
 
