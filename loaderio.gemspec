@@ -4,8 +4,8 @@ require "loaderio/version"
 Gem::Specification.new do |s|
   s.name        = "loaderio"
   s.version     = Loaderio::VERSION
-  s.authors     = ["Olexander Paladiy", "Ryan Her"]
-  s.email       = ["ryan@quikly.com"]
+  s.authors     = ["Olexander Paladiy", "Ryan Her", "Eric Hopkins"]
+  s.email       = ["eric@quikly.com"]
   s.homepage    = "http://loader.io/"
   s.summary     = %q{loader.io ruby api client v2}
   s.description = %q{loader.io ruby api client v2}
@@ -21,6 +21,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "simplecov", "~> 0.7.1"
   s.add_development_dependency "rake", "~> 10.2.2"
 
-  s.add_runtime_dependency "rest_client", "~> 1.7.3"
+  s.add_runtime_dependency "rest-client", "~> 1.7.3"
   s.add_runtime_dependency "multi_json", "~> 1.9.2"
 end
