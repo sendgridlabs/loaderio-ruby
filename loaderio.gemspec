@@ -21,6 +21,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "simplecov", "~> 0.7.1"
   s.add_development_dependency "rake", "~> 10.2.2"
 
-  s.add_runtime_dependency "rest-client", "~> 1.7.3"
+  s.add_runtime_dependency "rest-client", "~> 2.0.2"
   s.add_runtime_dependency "multi_json", "~> 1.9.2"
 end
