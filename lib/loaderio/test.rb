@@ -16,6 +16,25 @@ module Loaderio
       super
     end
 
+    def as_json(_options = {})
+      {
+          url: @url,
+          name: @name,
+          duration: @duration,
+          timeout: @timeout,
+          from: @from,
+          to: @to,
+          status: @status,
+          test_id: @test_id,
+          request_type: @request_type,
+          results_data: @results_data&.to_hash
+      }
+    end
+
+    def to_json(*options)
+      as_json(*options).to_json(*options)
+    end
+
     def self.resource_name
       "tests"
     end
