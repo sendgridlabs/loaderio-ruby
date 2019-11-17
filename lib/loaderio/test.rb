@@ -1,46 +1,66 @@
 module Loaderio
   class Test < Base
-    attr_reader :url, :name, :duration, :timeout, :from, :to, :status, :test_id, :request_type, :results_data
+    attr_reader :test_id, :name, :notes,
+        :test_type, :duration, :timeout, :initial, :total, :domain, :urls,
+        :status, :callback, :callback_email, :scheduled_at
+
 
     def initialize(attributes)
-      @url          = attributes[:url]
-      @name         = attributes[:name]
-      @duration     = attributes[:duration]
-      @timeout      = attributes[:timeout]
-      @from         = attributes[:from]
-      @to           = attributes[:to]
-      @status       = attributes[:status]
-      @test_id      = attributes[:test_id]
-      @request_type = attributes[:request_type]
-      @results_data = OpenStruct.new(attributes[:results_data])
+      @test_id        = attributes[:test_id]
+      @name           = attributes[:name]
+      @notes          = attributes[:notes]
+
+      @test_type      = attributes[:test_type]
+      @duration       = attributes[:duration]
+      @timeout        = attributes[:timeout]
+      @initial        = attributes[:initial]
+      @total          = attributes[:total]
+      @domain         = attributes[:domain]
+      @urls           = attributes[:urls]
+
+      @status         = attributes[:status]
+      @callback       = attributes[:callback]
+      @callback_email = attributes[:callback_email]
+      @scheduled_at   = attributes[:scheduled_at]
+
       super
     end
 
     def as_json(_options = {})
       {
-          url: @url,
-          name: @name,
-          duration: @duration,
-          timeout: @timeout,
-          from: @from,
-          to: @to,
-          status: @status,
-          test_id: @test_id,
-          request_type: @request_type,
-          results_data: @results_data&.to_hash
-      }
+        test_id: @test_id,
+        name: @name,
+        notes: @notes,
+
+        test_type: @test_type,
+        duration: @duration,
+        timeout: @timeout,
+        initial: @initial,
+        total: @total,
+        domain: @domain,
+        urls: @urls,
+
+        status: @status,
+        callback: @callback,
+        callback_email: @callback_email,
+        scheduled_at: @scheduled_at
+     }
     end
 
     def to_json(*options)
       as_json(*options).to_json(*options)
     end
 
-    def self.resource_name
-      "tests"
+    def complete?
+      status == 'complete'
     end
 
-    def self.results(id)
-      new(parse(Loaderio::Configuration.resource["#{resource_name}/#{id}/results"].get))
+    def results
+      parse(Loaderio::Configuration.resource["#{resource_name}/#{@test_id}/results"].get)
+    end
+
+    def self.resource_name
+      "tests"
     end
 
     def self.run(id)
